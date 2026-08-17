@@ -3,7 +3,8 @@
 :root {
   --background: #fbfaf8;
   --foreground: #1c1917;
-  --accent: #b89047; /* Luxury Gold */
+  --accent: #e3aa40;
+  /* Luxury Gold */
 }
 
 @theme inline {
@@ -48,4 +49,18 @@ html {
 ::selection {
   background-color: var(--accent);
   color: #09090b;
+}
+
+/* Custom Slow Rotation Animation for Watermarks/Orbits */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
 }

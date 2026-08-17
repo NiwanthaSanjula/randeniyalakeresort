@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { href: "#home", label: "Home" },
@@ -64,24 +65,22 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
           ? "bg-stone-950/90 backdrop-blur-md border-b border-stone-800/30 py-4"
           : "bg-transparent py-6"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center space-x-2 group">
-          <div className="w-8 h-8 rounded-full border-2 border-accent flex items-center justify-center font-serif text-accent font-bold text-lg group-hover:bg-accent group-hover:text-zinc-950 transition-all duration-300">
-            A
-          </div>
-          <span className="font-serif text-2xl font-semibold tracking-wider text-white">
-            AURA
-            <span className="text-accent text-xs block tracking-widest leading-none font-sans font-light">
-              RESORT & SPA
-            </span>
-          </span>
+        <a href="#home" className="flex items-center group">
+          <Image
+            src="/randeniyaLogo.png"
+            alt="Randeniya Lake Resort Logo"
+            width={160}
+            height={48}
+            className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter brightness-100"
+            priority
+          />
         </a>
 
         {/* Desktop Navigation Links */}
@@ -98,9 +97,8 @@ export default function Navbar() {
                 {link.label}
                 {/* Underline transition */}
                 <span
-                  className={`absolute -bottom-1.5 left-1/2 -translate-x-1/2 h-[2px] bg-accent transition-all duration-300 ${
-                    isActive ? "w-full opacity-100" : "w-0 opacity-0 hover:w-full hover:opacity-100"
-                  }`}
+                  className={`absolute -bottom-1.5 left-1/2 -translate-x-1/2 h-0.5 bg-accent transition-all duration-300 ${isActive ? "w-full opacity-100" : "w-0 opacity-0 hover:w-full hover:opacity-100"
+                    }`}
                 />
               </a>
             );
@@ -131,9 +129,8 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed inset-0 top-[73px] bg-zinc-950/95 backdrop-blur-lg z-40 transition-all duration-500 md:hidden ${
-          isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
-        }`}
+        className={`fixed inset-0 top-18.25 bg-zinc-950/95 backdrop-blur-lg z-40 transition-all duration-500 md:hidden ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
+          }`}
       >
         <nav className="flex flex-col items-center justify-center h-[calc(100vh-80px)] space-y-8 px-6 text-center">
           {NAV_LINKS.map((link) => {
@@ -143,9 +140,8 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className={`text-2xl font-serif tracking-widest transition-colors ${
-                  isActive ? "text-accent" : "text-zinc-300 hover:text-white"
-                }`}
+                className={`text-2xl font-serif tracking-widest transition-colors ${isActive ? "text-accent" : "text-zinc-300 hover:text-white"
+                  }`}
               >
                 {link.label}
               </a>
