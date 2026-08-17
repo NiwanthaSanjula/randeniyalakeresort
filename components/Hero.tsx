@@ -204,7 +204,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-[30vh] bg-linear-to-t from-stone-50 via-stone-50/50 to-transparent pointer-events-none z-20" />
 
       {/* LAYER 5: TEXT & CARDS UI OVERLAYS */}
-      <div className="relative z-30 flex flex-col md:flex-row justify-between items-end gap-8 px-6 md:px-12 pb-12 w-full">
+      <div className="relative max-w-7xl mx-auto z-30 flex flex-col md:flex-row justify-between items-end gap-8 px-6 md:px-12 pb-12 w-full">
 
         {/* Left Column: Description & Eco-Card Wrapper */}
         <div

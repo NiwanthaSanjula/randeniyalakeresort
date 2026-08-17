@@ -60,7 +60,7 @@ export default function AboutSection() {
     <section
       ref={containerRef}
       id="about"
-      className="relative min-h-dvh w-full bg-slate-50 py-24 px-4 sm:px-8 lg:px-12 overflow-hidden z-0 flex flex-col justify-center"
+      className="relative min-h-dvh max-w-7xl mx-auto w-full bg-slate-50 py-24 px-4 sm:px-8 lg:px-12 overflow-hidden z-0 flex flex-col justify-center"
     >
       {/* Massive Background Text (Light Theme Watermark) */}
       <div className="bg-massive-text absolute top-0 left-1/2 -translate-x-1/2 text-[18vw] font-display font-black leading-none tracking-widest text-slate-200/60 select-none whitespace-nowrap -z-10 pointer-events-none">
@@ -108,7 +108,7 @@ export default function AboutSection() {
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-0 left-0 p-8 w-full">
-              <span className="text-emerald-400 text-[10px] font-bold tracking-widest uppercase block mb-2">
+              <span className="text-amber-400 text-[10px] font-bold tracking-widest uppercase block mb-2">
                 Our Sanctuary
               </span>
               <h3 className="text-white text-2xl md:text-3xl font-bold leading-tight">
@@ -178,7 +178,7 @@ export default function AboutSection() {
             {/* Middle Row: 3 Feature Cards (Matches Farm-to-Table, Master Chefs, etc.) */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
-              <div className="bento-card bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex flex-col hover:shadow-md transition-shadow relative overflow-hidden group">
+              <div className="bento-card bg-white rounded-xl p-6 shadow-md border border-slate-100 flex flex-col hover:shadow-md transition-shadow relative overflow-hidden group">
                 <Trees className="absolute -right-3.75 -bottom-5 w-24 h-24 text-amber-500/8 pointer-events-none select-none z-0 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500" />
                 <div className="relative z-10">
                   <div className="w-10 h-10 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-4">
@@ -191,20 +191,20 @@ export default function AboutSection() {
                 </div>
               </div>
 
-              <div className="bento-card bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex flex-col hover:shadow-md transition-shadow relative overflow-hidden group">
+              <div className="bento-card bg-white rounded-xl p-6 shadow-md border border-slate-100 flex flex-col hover:shadow-md transition-shadow relative overflow-hidden group">
                 <ShieldCheck className="absolute -right-3.75 -bottom-5 w-24 h-24 text-emerald-500/8 pointer-events-none select-none z-0 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500" />
                 <div className="relative z-10">
                   <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-4">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
-                  <h5 className="font-bold text-slate-900 mb-1 text-sm lg:text-base">Zero Impact</h5>
+                  <h5 className="font-bold text-slate-900 mb-1 text-md lg:text-base">Zero Impact</h5>
                   <p className="text-[11px] lg:text-xs text-slate-500 leading-relaxed">
                     Our sanctuary is built with sustainable, zero-impact bamboo architecture.
                   </p>
                 </div>
               </div>
 
-              <div className="bento-card bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex flex-col hover:shadow-md transition-shadow relative overflow-hidden group">
+              <div className="bento-card bg-white rounded-xl p-6 shadow-md border border-slate-100 flex flex-col hover:shadow-md transition-shadow relative overflow-hidden group">
                 <Star className="absolute -right-3.75 -bottom-5 w-24 h-24 text-blue-500/8 pointer-events-none select-none z-0 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500" />
                 <div className="relative z-10">
                   <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4">
@@ -220,7 +220,7 @@ export default function AboutSection() {
             </div>
 
             {/* Bottom Row: Stats Summary */}
-            <div className="bento-card bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex flex-wrap justify-between items-center gap-4 text-center">
+            <div className="bento-card border-l-4 border-l-emerald-500 bg-white rounded-xl p-6 shadow-md border border-slate-100 flex flex-wrap justify-between items-center gap-4 text-center">
               <div className="flex-1 min-w-20">
                 <h6 className="text-2xl lg:text-3xl font-black text-emerald-600">12+</h6>
                 <p className="text-[9px] lg:text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-1">Luxury Villas</p>
