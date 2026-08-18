@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { Compass, Star, ShieldCheck, Leaf, Trees, Award } from "lucide-react";
+import { Star, ShieldCheck, Leaf, Trees } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

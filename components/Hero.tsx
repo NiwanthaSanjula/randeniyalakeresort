@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Star, Compass, Wind } from "lucide-react";
+import { Compass, Wind } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -215,7 +215,7 @@ export default function Hero() {
           <div ref={descInnerRef} className="space-y-4">
             <div className="h-1 w-12 bg-primary-600 rounded" />
             <p className="text-zinc-100 md:text-zinc-200 font-sans font-bold text-sm sm:text-base leading-relaxed drop-shadow-md">
-              Disconnect from the noise. Discover our architecturally designed lakefront villas perched perfectly on the water's edge. Your serene sanctuary awaits, surrounded by lush tropical canopy, mirrored waters, and the gentle rhythm of nature.
+              Disconnect from the noise. Discover our architecturally designed lakefront villas perched perfectly on the water&apos;s edge. Your serene sanctuary awaits, surrounded by lush tropical canopy, mirrored waters, and the gentle rhythm of nature.
             </p>
  
             {/* Bottom Left Card: Eco Details */}

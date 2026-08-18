@@ -10,6 +10,13 @@ if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
 }
 
+interface Testimonial {
+    text: string;
+    name: string;
+    role: string;
+    image: string;
+}
+
 const TESTIMONIALS = [
     {
         text: "The attention to detail here is unmatched. The bamboo architecture blends perfectly with nature without sacrificing a single modern comfort.",
@@ -77,7 +84,7 @@ export default function TestimonialsSliding() {
         { scope: containerRef }
     );
 
-    const renderCard = (testimonial: any, index: number) => (
+    const renderCard = (testimonial: Testimonial, index: number) => (
         <div
             key={index}
             className="bg-white border border-slate-200 hover:border-primary-300 rounded-3xl p-8 shrink-0 w-[320px] md:w-105 shadow-sm hover:shadow-xl hover:shadow-primary-900/5 transition-all duration-300 flex flex-col justify-between"
@@ -89,7 +96,7 @@ export default function TestimonialsSliding() {
                     ))}
                 </div>
                 <p className="text-slate-700 text-base md:text-lg leading-relaxed font-light mb-8">
-                    "{testimonial.text}"
+                    &ldquo;{testimonial.text}&rdquo;
                 </p>
             </div>
 

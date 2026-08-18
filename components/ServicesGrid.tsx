@@ -8,8 +8,6 @@ import {
     Waves,
     Coffee,
     Droplets,
-    UtensilsCrossed,
-    ArrowRight,
     Flame
 } from "lucide-react";
 
@@ -57,7 +55,7 @@ export default function ServicesFloatingParallax() {
 
     useGSAP(
         () => {
-            let mm = gsap.matchMedia();
+            const mm = gsap.matchMedia();
 
             // 0. Parallax for the massive background "EXPERIENCES" text
             gsap.to(".bg-massive-text", {

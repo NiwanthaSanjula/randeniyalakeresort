@@ -92,7 +92,7 @@ export default function VillasCreativeResponsive() {
     useGSAP(
         () => {
             // MatchMedia handles responsive GSAP animations safely
-            let mm = gsap.matchMedia();
+            const mm = gsap.matchMedia();
 
             // 1. Universal Entrance Animations (Header text fade in)
             gsap.from(".reveal-item", {
@@ -149,8 +149,8 @@ export default function VillasCreativeResponsive() {
 
             // 3. Mobile-Only Logic (Vertical Scroll Fade-ins)
             mm.add("(max-width: 767px)", () => {
-                const cards = gsap.utils.toArray(".villa-card");
-                cards.forEach((card: any) => {
+                const cards = gsap.utils.toArray<Element>(".villa-card");
+                cards.forEach((card) => {
                     gsap.from(card, {
                         y: 50,
                         opacity: 0,

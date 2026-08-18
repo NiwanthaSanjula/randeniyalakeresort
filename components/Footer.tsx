@@ -43,7 +43,7 @@ export default function Footer() {
                             />
                         </a>
                         <p className="text-stone-400 font-light text-sm leading-relaxed max-w-sm">
-                            An architectural sanctuary nestled on the edge of Randeniya Wewa. Experience sustainable eco-luxe living, guided by the rhythms of Sri Lanka's raw natural beauty.
+                            An architectural sanctuary nestled on the edge of Randeniya Wewa. Experience sustainable eco-luxe living, guided by the rhythms of Sri Lanka&apos;s raw natural beauty.
                         </p>
                         {/* Social Links */}
                         <div className="flex items-center gap-4 mt-2">
