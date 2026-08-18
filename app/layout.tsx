@@ -25,8 +25,8 @@ const bebas = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "Aura Resort & Spa | Luxury Boutique Hotel",
-  description: "Experience premium luxury and serenity at Aura Resort & Spa.",
+  title: "Randeniya Lake Resort | Luxury Eco-Luxe Sanctuary in Sri Lanka",
+  description: "Discover Randeniya Lake Resort, a premium sustainable boutique lodge on the edge of Randeniya Wewa, Sri Lanka. Experience luxury eco-villas, open-air Ayurveda wellness, and bespoke lakeside dining.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

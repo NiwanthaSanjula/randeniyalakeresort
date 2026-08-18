@@ -2,6 +2,10 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import VillasShowcase from "@/components/VillasShowcase";
+import ServicesGrid from "@/components/ServicesGrid";
+import TestimonialsMarquee from "@/components/TestimonialsMarquee";
+import BookingInquiry from "@/components/BookingInquiry";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -11,6 +15,10 @@ export default function Home() {
         <Hero />
         <AboutSection />
         <VillasShowcase />
+        <ServicesGrid />
+        <TestimonialsMarquee />
+        <BookingInquiry />
+        <Footer />
       </main>
     </div>
   );

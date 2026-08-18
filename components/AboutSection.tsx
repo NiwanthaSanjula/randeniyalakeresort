@@ -73,20 +73,20 @@ export default function AboutSection() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-10">
           <div className="w-full md:w-3/5 header-reveal">
             <div className="flex items-center gap-4 mb-4">
-              <div className="h-px w-12 bg-emerald-600" />
-              <span className="text-emerald-700 font-bold tracking-widest text-sm uppercase">
+              <div className="h-px w-12 bg-primary-600" />
+              <span className="text-primary-700 font-bold tracking-widest text-sm uppercase">
                 Est. 2026
               </span>
             </div>
             <h2 className="text-5xl md:text-7xl font-black leading-[1.05] uppercase tracking-tight text-slate-900">
               Crafting <br />
-              <span className="text-emerald-600 italic font-serif pr-2">Lakeside</span> <br />
+              <span className="text-primary-600 italic font-serif pr-2">Lakeside</span> <br />
               Serenity
             </h2>
           </div>
 
           <div className="w-full md:w-2/5 pb-2 header-reveal">
-            <p className="text-slate-600 leading-relaxed text-sm md:text-base border-l-3 border-emerald-500 pl-6">
+            <p className="text-slate-600 leading-relaxed text-sm md:text-base border-l-3 border-primary-500 pl-6">
               What started as a vision for sustainable luxury hidden in nature has grown into a haven for peace seekers. True hospitality is our passion, blending raw natural beauty, eco-friendly bamboo architecture, and memories shared by the water.
             </p>
           </div>
@@ -99,7 +99,7 @@ export default function AboutSection() {
           <div className="bento-card lg:col-span-5 rounded-xl overflow-hidden relative shadow-lg group min-h-100 lg:min-h-150 bg-slate-200">
             {/* Replace src with your building/resort image */}
             <Image
-              src="/aboutSunrise.jpg"
+              src="/aboutSunriseNew.jpg"
               alt="Bamboo Architecture"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -141,11 +141,11 @@ export default function AboutSection() {
               </div>
 
               {/* Badge Card (Using Emerald for light theme elegance with orbital text rotation) */}
-              <div className="bento-card rounded-xl bg-emerald-600 p-8 flex items-center justify-center shadow-md relative overflow-hidden text-center min-h-50 sm:min-h-0 group cursor-pointer">
+              <div className="bento-card rounded-xl bg-primary-600 p-8 flex items-center justify-center shadow-md relative overflow-hidden text-center min-h-50 sm:min-h-0 group cursor-pointer">
                 {/* Decorative concentric thin rings */}
 
-                <div className="absolute w-40 h-40 border border-emerald-500/50 rounded-full scale-105 transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute w-48 h-48 border border-emerald-500/50 rounded-full scale-110 transition-transform duration-700 group-hover:scale-115" />
+                <div className="absolute w-40 h-40 border border-primary-500/50 rounded-full scale-105 transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute w-48 h-48 border border-primary-500/50 rounded-full scale-110 transition-transform duration-700 group-hover:scale-115" />
 
                 {/* Spinning Circular Text Orbit (Enlarged to 82px radius to prevent center overlap) */}
                 <div className="absolute inset-0 flex items-center justify-center animate-spin-slow pointer-events-none select-none scale-100 group-hover:scale-105 transition-transform duration-700 z-0">
@@ -155,7 +155,7 @@ export default function AboutSection() {
                       d="M 100,100 m -82,0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0"
                       fill="none"
                     />
-                    <text className="text-[7.5px] font-sans font-bold uppercase tracking-[0.27em] fill-emerald-200/50">
+                    <text className="text-[7.5px] font-sans font-bold uppercase tracking-[0.27em] fill-primary-200/50">
                       <textPath href="#ecoTextCirclePath" startOffset="0%">
                         ECO-LUXE DESIGN • EST. 2026 • 100% SUSTAINABLE •
                       </textPath>
@@ -165,9 +165,9 @@ export default function AboutSection() {
 
                 {/* Center Content */}
                 <div className="relative z-10 flex flex-col items-center">
-                  <Leaf className="text-emerald-200 w-8 h-8 mb-2 transform group-hover:scale-110 transition-transform duration-500" />
+                  <Leaf className="text-primary-200 w-8 h-8 mb-2 transform group-hover:scale-110 transition-transform duration-500" />
                   <h4 className="text-4xl lg:text-5xl font-black text-white leading-none">100%</h4>
-                  <p className="text-emerald-950 font-bold tracking-widest uppercase text-[10px] mt-2">
+                  <p className="text-primary-950 font-bold tracking-widest uppercase text-[10px] mt-2">
                     Eco-Luxe Design
                   </p>
                 </div>
@@ -192,9 +192,9 @@ export default function AboutSection() {
               </div>
 
               <div className="bento-card bg-white rounded-xl p-6 shadow-md border border-slate-100 flex flex-col hover:shadow-md transition-shadow relative overflow-hidden group">
-                <ShieldCheck className="absolute -right-3.75 -bottom-5 w-24 h-24 text-emerald-500/8 pointer-events-none select-none z-0 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500" />
+                <ShieldCheck className="absolute -right-3.75 -bottom-5 w-24 h-24 text-primary-500/8 pointer-events-none select-none z-0 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500" />
                 <div className="relative z-10">
-                  <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 bg-primary-50 text-primary-600 rounded-xl flex items-center justify-center mb-4">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <h5 className="font-bold text-slate-900 mb-1 text-md lg:text-base">Zero Impact</h5>
@@ -204,7 +204,7 @@ export default function AboutSection() {
                 </div>
               </div>
 
-              <div className="bento-card bg-white rounded-xl p-6 shadow-md border border-slate-100 flex flex-col hover:shadow-md transition-shadow relative overflow-hidden group">
+              <div className="bento-card bg-white border-l-4 border-l-white rounded-xl p-6 shadow-md border border-slate-100 flex flex-col hover:shadow-md transition-shadow relative overflow-hidden group">
                 <Star className="absolute -right-3.75 -bottom-5 w-24 h-24 text-blue-500/8 pointer-events-none select-none z-0 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500" />
                 <div className="relative z-10">
                   <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4">
@@ -220,9 +220,9 @@ export default function AboutSection() {
             </div>
 
             {/* Bottom Row: Stats Summary */}
-            <div className="bento-card border-l-4 border-l-emerald-500 bg-white rounded-xl p-6 shadow-md border border-slate-100 flex flex-wrap justify-between items-center gap-4 text-center">
+            <div className="bento-card border-l-4 border-l-primary-500 bg-neutral-900 rounded-xl p-6 shadow-md border border-slate-100 flex flex-wrap justify-between items-center gap-4 text-center">
               <div className="flex-1 min-w-20">
-                <h6 className="text-2xl lg:text-3xl font-black text-emerald-600">12+</h6>
+                <h6 className="text-2xl lg:text-3xl font-black text-primary-600">12+</h6>
                 <p className="text-[9px] lg:text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-1">Luxury Villas</p>
               </div>
               <div className="w-px h-8 bg-slate-100 hidden sm:block" />
@@ -234,13 +234,13 @@ export default function AboutSection() {
               <div className="w-px h-8 bg-slate-100 hidden sm:block" />
 
               <div className="flex-1 min-w-20">
-                <h6 className="text-2xl lg:text-3xl font-black text-slate-900">5.0</h6>
+                <h6 className="text-2xl lg:text-3xl font-black text-slate-300">5.0</h6>
                 <p className="text-[9px] lg:text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-1">Star Rating</p>
               </div>
               <div className="w-px h-8 bg-slate-100 hidden sm:block" />
 
               <div className="flex-1 min-w-20">
-                <h6 className="text-2xl lg:text-3xl font-black text-slate-900">24/7</h6>
+                <h6 className="text-2xl lg:text-3xl font-black text-slate-300">24/7</h6>
                 <p className="text-[9px] lg:text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-1">Concierge</p>
               </div>
             </div>

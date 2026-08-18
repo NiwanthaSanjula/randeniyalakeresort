@@ -183,7 +183,7 @@ export default function VillasCreativeResponsive() {
                 <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold">
                     Scroll to explore
                 </span>
-                <ArrowRight className="w-3.5 h-3.5 text-emerald-600" />
+                <ArrowRight className="w-3.5 h-3.5 text-primary-600" />
             </div>
 
             {/* Main Track (Flex-col on mobile, flex-row/w-max on desktop) */}
@@ -194,16 +194,16 @@ export default function VillasCreativeResponsive() {
                 {/* Intro Header Block */}
                 <div className="w-full md:w-[45vw] shrink-0 md:pr-24 pl-2 md:pl-0">
                     <div className="reveal-item flex items-center gap-3 mb-6">
-                        <Leaf className="w-4 h-4 text-emerald-600" />
-                        <span className="text-emerald-700 font-bold tracking-widest text-xs uppercase">
+                        <Leaf className="w-4 h-4 text-primary-600" />
+                        <span className="text-primary-700 font-bold tracking-widest text-xs uppercase">
                             The Collection
                         </span>
                     </div>
                     <h2 className="reveal-item text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-slate-900 leading-[0.95] mb-8">
                         Wake beside <br />
-                        <span className="text-emerald-600 italic font-serif font-light pr-2">the water</span>
+                        <span className="text-primary-600 italic font-serif font-light pr-2">the water</span>
                     </h2>
-                    <p className="reveal-item text-slate-600 leading-relaxed md:text-lg border-l-2 border-emerald-200 pl-6 max-w-md">
+                    <p className="reveal-item text-slate-600 leading-relaxed md:text-lg border-l-2 border-primary-200 pl-6 max-w-md">
                         Every sanctuary keeps a different distance from the lake — from the shallows by the dock to a secluded cove that belongs to no one else. Explore the collection to find yours.
                     </p>
                 </div>
@@ -218,21 +218,21 @@ export default function VillasCreativeResponsive() {
                         <img
                             src={villa.imageDay}
                             alt={`${villa.name} Day View`}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000"
                         />
 
                         {/* 2. Night Image (Fades in on hover) */}
                         <img
                             src={villa.imageNight}
                             alt={`${villa.name} Night View`}
-                            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-all duration-800 group-hover:scale-105"
+                            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-all duration-800"
                         />
 
                         {/* 3. Dark Gradient overlay for better text readability */}
                         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
 
                         {/* Top Left Badge */}
-                        <span className="absolute top-6 left-6 md:top-8 md:left-8 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-white/50 text-[10px] font-bold uppercase tracking-widest text-emerald-900 shadow-lg z-10">
+                        <span className="absolute top-6 left-6 md:top-8 md:left-8 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-white/50 text-[10px] font-bold uppercase tracking-widest text-primary-900 shadow-lg z-10">
                             {villa.position}
                         </span>
 
@@ -251,7 +251,7 @@ export default function VillasCreativeResponsive() {
                                 <div className="flex flex-wrap gap-x-4 md:gap-x-6 gap-y-2">
                                     {villa.stats.map((stat, i) => (
                                         <div key={i} className="flex items-center gap-1.5 md:gap-2">
-                                            <stat.icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-emerald-500" />
+                                            <stat.icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary-500" />
                                             <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-slate-500">
                                                 {stat.label}
                                             </span>
@@ -282,11 +282,11 @@ export default function VillasCreativeResponsive() {
                                         <span className="text-xs font-sans font-medium text-slate-400"> / night</span>
                                     </span>
                                 </div>
-                                <button className="group/btn flex items-center gap-2 px-5 py-2.5 md:mt-4 md:w-full justify-center bg-slate-900 hover:bg-emerald-600 rounded-xl transition-colors shadow-md">
+                                <button className="group/btn flex items-center gap-2 px-5 py-2.5 md:mt-4 md:w-full justify-center bg-slate-900 hover:bg-primary-600 rounded-xl transition-colors shadow-md">
                                     <span className="text-xs font-bold uppercase tracking-wider text-white">
                                         Reserve
                                     </span>
-                                    <ArrowRight className="w-3.5 h-3.5 text-emerald-400 group-hover/btn:text-white group-hover/btn:translate-x-1 transition-all" />
+                                    <ArrowRight className="w-3.5 h-3.5 text-primary-400 group-hover/btn:text-white group-hover/btn:translate-x-1 transition-all" />
                                 </button>
                             </div>
 
@@ -303,12 +303,12 @@ export default function VillasCreativeResponsive() {
                 <div className="relative h-1 w-full bg-slate-200 rounded-full">
                     <div
                         ref={waterFillRef}
-                        className="absolute inset-y-0 left-0 bg-emerald-600 rounded-full"
+                        className="absolute inset-y-0 left-0 bg-primary-600 rounded-full"
                         style={{ width: "0%" }}
                     />
                     <div
                         ref={markerRef}
-                        className="absolute -top-2.5 -translate-x-1/2 text-emerald-600 bg-slate-50 rounded-full p-0.5"
+                        className="absolute -top-2.5 -translate-x-1/2 text-primary-600 bg-slate-50 rounded-full p-0.5"
                         style={{ left: "0%" }}
                     >
                         <Compass className="w-5 h-5" />

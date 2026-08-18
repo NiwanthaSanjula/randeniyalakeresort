@@ -184,7 +184,7 @@ export default function Hero() {
         className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 mt-[-20vh] md:mt-[-15vh]"
       >
         <div ref={textRef} className="w-full text-center">
-          <h1 className="font-display mb-25 md:mb-45 text-[16vw] sm:text-[18vw] md:text-[14vw] leading-none tracking-wider uppercase drop-shadow-2xl bg-linear-to-b from-white via-white/80 to-transparent bg-clip-text text-transparent">
+          <h1 className="font-display mb-70 md:mb-45 text-[16vw] sm:text-[18vw] md:text-[14vw] leading-none tracking-wider uppercase drop-shadow-2xl bg-linear-to-b from-white via-white/80 to-transparent bg-clip-text text-transparent">
             {HEADLINES[textIndex]}
           </h1>
         </div>
@@ -213,15 +213,15 @@ export default function Hero() {
         >
           {/* Inner target for initial entrance timeline */}
           <div ref={descInnerRef} className="space-y-4">
-            <div className="h-1 w-12 bg-emerald-600 rounded" />
+            <div className="h-1 w-12 bg-primary-600 rounded" />
             <p className="text-zinc-100 md:text-zinc-200 font-sans font-bold text-sm sm:text-base leading-relaxed drop-shadow-md">
               Disconnect from the noise. Discover our architecturally designed lakefront villas perched perfectly on the water's edge. Your serene sanctuary awaits, surrounded by lush tropical canopy, mirrored waters, and the gentle rhythm of nature.
             </p>
-
+ 
             {/* Bottom Left Card: Eco Details */}
-            <div className="w-full p-4 rounded-2xl bg-white/95 border-l-4 border-l-emerald-600 backdrop-blur-md shadow-2xl border border-white/20 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] cursor-pointer text-zinc-950">
+            <div className="w-full p-4 rounded-2xl bg-white/95 border-l-4 border-l-primary-600 backdrop-blur-md shadow-2xl border border-white/20 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] cursor-pointer text-zinc-950">
               <div className="flex items-center space-x-2 text-zinc-900 mb-1">
-                <Compass className="w-4 h-4 text-emerald-600 animate-spin-slow" />
+                <Compass className="w-4 h-4 text-primary-600 animate-spin-slow" />
                 <span className="text-[10px] font-bold uppercase tracking-wider font-sans text-stone-500">Eco-Luxe Design</span>
               </div>
               <h3 className="font-serif text-sm font-semibold text-zinc-950">Sustainable Retreat</h3>
@@ -229,7 +229,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-
+ 
         {/* Right Column: Two stacked cards Wrapper */}
         <div
           ref={cardsOuterRef}
@@ -237,19 +237,19 @@ export default function Hero() {
         >
           {/* Inner target for initial entrance timeline */}
           <div ref={cardsInnerRef} className="space-y-4">
-
+ 
             {/* Card 1: Weather Details */}
-            <div className="w-full p-4 rounded-2xl bg-white/95 border-l-4 border-l-emerald-600 backdrop-blur-md shadow-2xl border border-white/20 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] cursor-pointer text-zinc-950">
+            <div className="w-full p-4 rounded-2xl bg-white/95 border-l-4 border-l-primary-600 backdrop-blur-md shadow-2xl border border-white/20 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] cursor-pointer text-zinc-950">
               <div className="flex items-center space-x-2 text-zinc-900 mb-1">
-                <Wind className="w-4 h-4 text-emerald-600" />
+                <Wind className="w-4 h-4 text-primary-600" />
                 <span className="text-[10px] font-bold uppercase tracking-wider font-sans text-stone-500">Lakeside Climate</span>
               </div>
               <h3 className="font-serif text-sm font-semibold text-zinc-950">Tranquil Waters</h3>
               <p className="text-[11px] text-zinc-600 font-sans font-light mt-1">28°C / 82°F • Gentle water breezes and clear skies. Perfect conditions for morning kayaking or a sunset deck lounge.</p>
             </div>
-
+ 
             {/* Card 2: Suite Availability */}
-            <div className="w-full p-4 rounded-2xl bg-white/95 border-l-4 border-l-emerald-600 backdrop-blur-md shadow-2xl border border-white/20 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] text-zinc-950">
+            <div className="w-full p-4 rounded-2xl bg-white/95 border-l-4 border-l-primary-600 backdrop-blur-md shadow-2xl border border-white/20 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] text-zinc-950">
               <div className="flex justify-between items-center">
                 <div>
                   <span className="text-[9px] uppercase tracking-widest text-zinc-500 block font-medium">Availability</span>
