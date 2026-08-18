@@ -28,6 +28,9 @@ const bebas = Bebas_Neue({
 export const metadata: Metadata = {
   title: "Randeniya Lake Resort | Luxury Eco-Luxe Sanctuary in Sri Lanka",
   description: "Discover Randeniya Lake Resort, a premium sustainable boutique lodge on the edge of Randeniya Wewa, Sri Lanka. Experience luxury eco-villas, open-air Ayurveda wellness, and bespoke lakeside dining.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
