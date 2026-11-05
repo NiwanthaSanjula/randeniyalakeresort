@@ -1,10 +1,13 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, type MouseEvent } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Bed, Maximize, Waves, Sparkles, ArrowRight, Leaf, Compass, Wifi, Users } from "lucide-react";
+import { useUpdateBooking } from "@/components/BookingProvider";
+import { BOOKING_VILLAS } from "@/lib/booking";
+import SectionLink from "@/components/SectionLink";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -13,8 +16,8 @@ if (typeof window !== "undefined") {
 // Added the 4th Family Cabin and the Day/Night image paths
 const VILLAS = [
     {
-        id: 1,
-        name: "The Lotus Suite",
+        id: BOOKING_VILLAS[1].id,
+        name: BOOKING_VILLAS[1].name,
         position: "18m from the shore",
         price: "$250",
         size: "65 sq.m",
@@ -30,8 +33,8 @@ const VILLAS = [
         ],
     },
     {
-        id: 2,
-        name: "Canopy Villa",
+        id: BOOKING_VILLAS[2].id,
+        name: BOOKING_VILLAS[2].name,
         position: "Suspended in nature",
         price: "$380",
         size: "85 sq.m",
@@ -47,8 +50,8 @@ const VILLAS = [
         ],
     },
     {
-        id: 3,
-        name: "The Grand Sanctuary",
+        id: BOOKING_VILLAS[3].id,
+        name: BOOKING_VILLAS[3].name,
         position: "Private cove · no neighbours",
         price: "$550",
         size: "120 sq.m",
@@ -64,8 +67,8 @@ const VILLAS = [
         ],
     },
     {
-        id: 4,
-        name: "The Family Haven",
+        id: BOOKING_VILLAS[4].id,
+        name: BOOKING_VILLAS[4].name,
         position: "Lakefront Estate",
         price: "$850",
         size: "180 sq.m",
@@ -83,11 +86,20 @@ const VILLAS = [
 ];
 
 export default function VillasCreativeResponsive() {
+    const updateBooking = useUpdateBooking();
     const sectionRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
     const waterFillRef = useRef<HTMLDivElement>(null);
     const markerRef = useRef<HTMLDivElement>(null);
     const hintRef = useRef<HTMLDivElement>(null);
+
+    function reserveVilla(event: MouseEvent<HTMLAnchorElement>, villa: string) {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+        updateBooking((current) => ({ ...current, villa }));
+        requestAnimationFrame(() => {
+            document.getElementById("booking-firstName")?.focus({ preventScroll: true });
+        });
+    }
 
     useGSAP(
         () => {
@@ -170,10 +182,11 @@ export default function VillasCreativeResponsive() {
     );
 
     return (
+        <div id="villas" className="scroll-mt-24">
+        {/* Clipping prevents focus from scrolling the gallery separately from its animation. */}
         <section
             ref={sectionRef}
-            id="villas"
-            className="relative w-full min-h-screen bg-slate-50 overflow-hidden select-none py-20 md:py-0"
+            className="relative w-full min-h-screen bg-slate-50 overflow-clip select-none py-20 md:py-0"
         >
             {/* Desktop Scroll Hint Badge */}
             <div
@@ -282,12 +295,17 @@ export default function VillasCreativeResponsive() {
                                         <span className="text-xs font-sans font-medium text-slate-400"> / night</span>
                                     </span>
                                 </div>
-                                <button className="group/btn flex items-center gap-2 px-5 py-2.5 md:mt-4 md:w-full justify-center bg-slate-900 hover:bg-primary-600 rounded-xl transition-colors shadow-md">
+                                <SectionLink
+                                    href="#reservation"
+                                    aria-label={`Reserve ${villa.name}`}
+                                    onClick={(event) => reserveVilla(event, villa.id)}
+                                    className="group/btn flex items-center gap-2 px-5 py-2.5 md:mt-4 md:w-full justify-center bg-slate-900 hover:bg-primary-600 rounded-xl transition-colors shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600"
+                                >
                                     <span className="text-xs font-bold uppercase tracking-wider text-white">
                                         Reserve
                                     </span>
                                     <ArrowRight className="w-3.5 h-3.5 text-primary-400 group-hover/btn:text-white group-hover/btn:translate-x-1 transition-all" />
-                                </button>
+                                </SectionLink>
                             </div>
 
                         </div>
@@ -316,5 +334,6 @@ export default function VillasCreativeResponsive() {
                 </div>
             </div>
         </section>
+        </div>
     );
 }

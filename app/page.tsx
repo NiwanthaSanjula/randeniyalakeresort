@@ -6,6 +6,7 @@ import ServicesGrid from "@/components/ServicesGrid";
 import TestimonialsMarquee from "@/components/TestimonialsMarquee";
 import BookingInquiry from "@/components/BookingInquiry";
 import Footer from "@/components/Footer";
+import BookingProvider from "@/components/BookingProvider";
 
 export default function Home() {
   return (
@@ -14,11 +15,16 @@ export default function Home() {
       <main className="grow">
         <Hero />
         <AboutSection />
-        <VillasShowcase />
-        <ServicesGrid />
-        <TestimonialsMarquee />
-        <BookingInquiry />
-        <Footer />
+        <BookingProvider>
+          <VillasShowcase />
+          <ServicesGrid />
+          <TestimonialsMarquee />
+          <BookingInquiry />
+        </BookingProvider>
+        <Footer
+          privacyPolicyUrl={process.env.PRIVACY_POLICY_URL}
+          termsOfServiceUrl={process.env.TERMS_OF_SERVICE_URL}
+        />
       </main>
     </div>
   );

@@ -6,6 +6,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionLink from "@/components/SectionLink";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -63,19 +64,8 @@ export default function Navbar() {
     return () => clearTimeout(timer);
   });
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
+  const handleLinkClick = () => {
     setIsOpen(false);
-    const targetId = href.slice(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      const offset = 80; // height of the navbar
-      const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth",
-      });
-    }
   };
 
   return (
@@ -88,7 +78,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Logo */}
-          <a href="#home" className="flex items-center group">
+          <SectionLink href="#home" className="flex items-center group">
             <Image
               src="/randeniyaLogo.png"
               alt="Randeniya Lake Resort Logo"
@@ -97,17 +87,17 @@ export default function Navbar() {
               className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter brightness-100"
               priority
             />
-          </a>
+          </SectionLink>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center space-x-8">
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.href.slice(1);
               return (
-                <a
+                <SectionLink
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleLinkClick(e, link.href)}
+                  onClick={handleLinkClick}
                   className={`relative text-xs tracking-widest uppercase font-bold text-white transition-colors duration-300 hover:text-primary`}
                 >
                   {link.label}
@@ -116,21 +106,21 @@ export default function Navbar() {
                     className={`absolute -bottom-1.5 left-1/2 -translate-x-1/2 h-0.5 bg-primary transition-all duration-300 ${isActive ? "w-full opacity-100" : "w-0 opacity-0 hover:w-full hover:opacity-100"
                       }`}
                   />
-                </a>
+                </SectionLink>
               );
             })}
           </nav>
 
           {/* Action Button */}
           <div className="hidden lg:block">
-            <a
-              href="#contact"
-              onClick={(e) => handleLinkClick(e, "#contact")}
+            <SectionLink
+              href="#reservation"
+              onClick={handleLinkClick}
               className="inline-flex items-center space-x-2 bg-primary hover:bg-primary-600 text-white px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 transform hover:scale-105 shadow-sm shadow-black/50"
             >
               <span>Book A Stay</span>
               <ArrowRight size={14} />
-            </a>
+            </SectionLink>
           </div>
 
           {/* Mobile Menu Button */}
@@ -153,25 +143,25 @@ export default function Navbar() {
           {NAV_LINKS.map((link) => {
             const isActive = activeSection === link.href.slice(1);
             return (
-              <a
+              <SectionLink
                 key={link.href}
                 href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
+                onClick={handleLinkClick}
                 className={`text-2xl font-serif tracking-widest transition-colors ${isActive ? "text-primary" : "text-zinc-300 hover:text-white"
                   }`}
               >
                 {link.label}
-              </a>
+              </SectionLink>
             );
           })}
-          <a
-            href="#contact"
-            onClick={(e) => handleLinkClick(e, "#contact")}
+          <SectionLink
+            href="#reservation"
+            onClick={handleLinkClick}
             className="mt-4 inline-flex items-center space-x-2 bg-primary text-white px-8 py-3.5 rounded-full text-sm font-semibold uppercase tracking-wider transition-all duration-300"
           >
             <span>Book A Stay</span>
             <ArrowRight size={16} />
-          </a>
+          </SectionLink>
         </nav>
       </div>
     </>

@@ -35,6 +35,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Keep section headings clear of the fixed navigation when following a link. */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
 /* Custom Premium Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

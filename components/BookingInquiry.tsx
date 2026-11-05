@@ -1,24 +1,16 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-    MapPin,
-    Phone,
-    Mail,
-    ArrowRight,
-    Calendar,
-    Users
-} from "lucide-react";
+import ReservationForm from "@/components/ReservationForm";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function BookingSimpleModern() {
-    const [isSubmitting, setIsSubmitting] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
     useGSAP(
@@ -35,15 +27,6 @@ export default function BookingSimpleModern() {
         },
         { scope: containerRef }
     );
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        setTimeout(() => {
-            setIsSubmitting(false);
-            alert("Your reservation request has been received.");
-        }, 1500);
-    };
 
     return (
         <section
@@ -134,114 +117,7 @@ export default function BookingSimpleModern() {
 
                     {/* --- RIGHT COLUMN: MODERN BOX FORM --- */}
                     <div className="lg:col-span-7 bg-slate-50 border border-slate-200/80 rounded-[2.5rem] p-8 md:p-12 shadow-xl shadow-slate-900/5">
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-
-                            {/* Name Row */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="flex flex-col gap-2">
-                                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">First Name</label>
-                                    <input
-                                        type="text"
-                                        required
-                                        className="w-full bg-white border border-slate-200 text-slate-900 rounded-2xl px-5 py-4 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all font-light placeholder:text-slate-300"
-                                        placeholder="Jane"
-                                    />
-                                </div>
-                                <div className="flex flex-col gap-2">
-                                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Last Name</label>
-                                    <input
-                                        type="text"
-                                        required
-                                        className="w-full bg-white border border-slate-200 text-slate-900 rounded-2xl px-5 py-4 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all font-light placeholder:text-slate-300"
-                                        placeholder="Doe"
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Email Row */}
-                            <div className="flex flex-col gap-2">
-                                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Email Address</label>
-                                <input
-                                    type="email"
-                                    required
-                                    className="w-full bg-white border border-slate-200 text-slate-900 rounded-2xl px-5 py-4 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all font-light placeholder:text-slate-300"
-                                    placeholder="jane@example.com"
-                                />
-                            </div>
-
-                            {/* Logistics Row */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="flex flex-col gap-2">
-                                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Expected Arrival</label>
-                                    <div className="relative">
-                                        <Calendar className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-500 pointer-events-none" />
-                                        <input
-                                            type="date"
-                                            className="w-full bg-white border border-slate-200 text-slate-900 rounded-2xl pl-12 pr-5 py-4 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all font-light appearance-none"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex flex-col gap-2">
-                                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Number of Guests</label>
-                                    <div className="relative">
-                                        <Users className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-primary-500 pointer-events-none" />
-                                        <select className="w-full bg-white border border-slate-200 text-slate-900 rounded-2xl pl-12 pr-5 py-4 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all font-light appearance-none cursor-pointer">
-                                            <option value="2">2 Guests (1 Villa)</option>
-                                            <option value="4">4 Guests (2 Villas)</option>
-                                            <option value="6">6 Guests (Full Estate)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Message Row */}
-                            <div className="flex flex-col gap-2">
-                                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Special Requests / Preferences</label>
-                                <textarea
-                                    rows={3}
-                                    className="w-full bg-white border border-slate-200 text-slate-900 rounded-2xl px-5 py-4 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all font-light resize-none placeholder:text-slate-300"
-                                    placeholder="Celebrating an anniversary? Dietary requirements? Let us know..."
-                                />
-                            </div>
-
-                            {/* Contact Info Block inside the form container */}
-                            <div className="pt-6 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div className="flex items-start gap-3">
-                                    <MapPin className="w-4 h-4 text-primary-500 shrink-0 mt-1" />
-                                    <span className="text-xs font-light text-slate-600 leading-relaxed">
-                                        Lake Road, Randeniya, Galewela, Sri Lanka
-                                    </span>
-                                </div>
-                                <div className="flex flex-col gap-2">
-                                    <a href="tel:+94771234567" className="flex items-center gap-3 text-xs font-light text-slate-600 hover:text-primary-600 transition-colors">
-                                        <Phone className="w-4 h-4 text-primary-500" />
-                                        <span>+94 77 123 4567</span>
-                                    </a>
-                                    <a href="mailto:concierge@randeniyalodge.com" className="flex items-center gap-3 text-xs font-light text-slate-600 hover:text-primary-600 transition-colors">
-                                        <Mail className="w-4 h-4 text-primary-500" />
-                                        <span className="truncate">concierge@randeniyalodge.com</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            {/* Submit Button */}
-                            <div className="pt-2">
-                                <button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="group w-full inline-flex items-center justify-center gap-4 bg-slate-900 text-white rounded-2xl px-8 py-5 hover:bg-primary-600 transition-colors duration-300 disabled:opacity-70 cursor-pointer shadow-lg"
-                                >
-                                    <span className="text-sm font-bold uppercase tracking-widest">
-                                        {isSubmitting ? "Sending Request..." : "Request Reservation"}
-                                    </span>
-                                    <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${isSubmitting ? '' : 'group-hover:translate-x-2'}`} />
-                                </button>
-                                <p className="text-slate-400 text-xs mt-3 text-center font-light">
-                                    *Submitting this form does not charge your card. Our team will verify availability.
-                                </p>
-                            </div>
-
-                        </form>
+                        <ReservationForm />
                     </div>
 
                 </div>

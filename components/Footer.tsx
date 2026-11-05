@@ -2,9 +2,17 @@
 
 import { Mail, Phone, MapPin, ArrowUp, Compass } from "lucide-react";
 import Image from "next/image";
+import { useLenis } from "lenis/react";
+import SectionLink from "@/components/SectionLink";
 
-export default function Footer() {
+export default function Footer({ privacyPolicyUrl, termsOfServiceUrl }: { privacyPolicyUrl?: string; termsOfServiceUrl?: string }) {
+    const lenis = useLenis();
     const scrollToTop = () => {
+        if (lenis) {
+            lenis.scrollTo(window.scrollY, { immediate: true });
+            lenis.scrollTo(0);
+            return;
+        }
         window.scrollTo({
             top: 0,
             behavior: "smooth",
@@ -33,7 +41,7 @@ export default function Footer() {
 
                     {/* Brand & Description (Column Span: 4) */}
                     <div className="lg:col-span-4 flex flex-col gap-6">
-                        <a href="#home" className="inline-block w-max">
+                        <SectionLink href="#home" className="inline-block w-max">
                             <Image
                                 src="/randeniyaLogo.png"
                                 alt="Randeniya Lake Resort Logo"
@@ -41,56 +49,19 @@ export default function Footer() {
                                 height={54}
                                 className="h-12 w-auto object-contain filter brightness-0 invert"
                             />
-                        </a>
+                        </SectionLink>
                         <p className="text-stone-400 font-light text-sm leading-relaxed max-w-sm">
                             An architectural sanctuary nestled on the edge of Randeniya Wewa. Experience sustainable eco-luxe living, guided by the rhythms of Sri Lanka&apos;s raw natural beauty.
                         </p>
-                        {/* Social Links */}
+                        {/* Contact shortcut */}
                         <div className="flex items-center gap-4 mt-2">
-                            <a
-                                href="https://instagram.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:text-amber-400 hover:border-amber-400/50 hover:bg-stone-900/50 transition-all duration-300"
-                            >
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    className="w-4 h-4"
-                                >
-                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                                </svg>
-                            </a>
-                            <a
-                                href="https://facebook.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:text-amber-400 hover:border-amber-400/50 hover:bg-stone-900/50 transition-all duration-300"
-                            >
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    className="w-4 h-4"
-                                >
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                                </svg>
-                            </a>
-                            <a
-                                href="#home"
+                            <SectionLink
+                                href="#contact"
+                                aria-label="Contact and directions"
                                 className="w-10 h-10 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:text-amber-400 hover:border-amber-400/50 hover:bg-stone-900/50 transition-all duration-300"
                             >
                                 <Compass className="w-4 h-4" />
-                            </a>
+                            </SectionLink>
                         </div>
                     </div>
 
@@ -103,17 +74,17 @@ export default function Footer() {
                             {[
                                 { label: "Home", href: "#home" },
                                 { label: "Our Story", href: "#about" },
-                                { label: "Rooms & Suites", href: "#rooms" },
+                                { label: "Rooms & Suites", href: "#villas" },
                                 { label: "Experiences", href: "#experiences" },
                                 { label: "Testimonials", href: "#testimonials" },
                             ].map((link) => (
-                                <a
+                                <SectionLink
                                     key={link.label}
                                     href={link.href}
                                     className="text-stone-400 hover:text-amber-400 text-sm font-light transition-colors duration-300 w-max"
                                 >
                                     {link.label}
-                                </a>
+                                </SectionLink>
                             ))}
                         </nav>
                     </div>
@@ -172,10 +143,12 @@ export default function Footer() {
                 {/* --- BOTTOM SECTION --- */}
                 <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-stone-500">
                     <p>© {new Date().getFullYear()} Randeniya Lake Resort. All rights reserved.</p>
-                    <div className="flex items-center gap-6">
-                        <a href="#" className="hover:text-stone-400 transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-stone-400 transition-colors">Terms of Service</a>
-                    </div>
+                    {(privacyPolicyUrl || termsOfServiceUrl) && (
+                        <div className="flex items-center gap-6">
+                            {privacyPolicyUrl && <a href={privacyPolicyUrl} className="hover:text-stone-400 transition-colors">Privacy Policy</a>}
+                            {termsOfServiceUrl && <a href={termsOfServiceUrl} className="hover:text-stone-400 transition-colors">Terms of Service</a>}
+                        </div>
+                    )}
                 </div>
             </div>
         </footer>

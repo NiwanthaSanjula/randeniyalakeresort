@@ -5,6 +5,7 @@ import { Compass, Wind } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionLink from "@/components/SectionLink";
 
 // Safe client-side registration of ScrollTrigger to prevent SSR/hydration crashes
 if (typeof window !== "undefined") {
@@ -255,12 +256,12 @@ export default function Hero() {
                   <span className="text-[9px] uppercase tracking-widest text-zinc-500 block font-medium">Availability</span>
                   <span className="text-lg font-serif font-bold text-zinc-900">Only 2 Left<span className="text-xs text-zinc-500 font-sans font-light"> / September</span></span>
                 </div>
-                <a
-                  href="#contact"
+                <SectionLink
+                  href="#reservation"
                   className="px-4 py-2.5 bg-zinc-950 hover:bg-zinc-800 text-white text-[10px] font-semibold uppercase tracking-wider rounded-lg transition-colors font-sans"
                 >
                   Reserve Stay
-                </a>
+                </SectionLink>
               </div>
             </div>
           </div>

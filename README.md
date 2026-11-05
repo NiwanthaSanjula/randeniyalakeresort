@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Randeniya Lake Resort
 
-## Getting Started
+A resort website built with Next.js 16, React 19, TypeScript, Tailwind CSS, GSAP, and Lenis.
 
-First, run the development server:
+## Local development
 
-```bash
+```powershell
+npm ci
+Copy-Item .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. The homepage can run without email credentials; reservation submissions return an unavailable message until delivery is configured.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Reservation email setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a [Resend](https://resend.com) account and [verify a sending domain](https://resend.com/docs/dashboard/domains/introduction).
+2. Create a sending API key and fill in the three values in `.env.local`:
 
-## Learn More
+   ```dotenv
+   RESEND_API_KEY=re_your_api_key
+   RESERVATION_FROM_EMAIL="Randeniya Lake Resort <reservations@your-verified-domain.com>"
+   RESERVATION_TO_EMAIL=your-concierge-inbox@example.com
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Restart the development server after changing environment variables. On your hosting platform, configure the same server-only variables and redeploy.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The form sends inquiries to `POST /api/reservations`. Both the browser and server validate contact details, villa preference, guest count, and real calendar dates. Check-in follows the Sri Lankan date; check-out must be later than check-in.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The server reports success only after Resend accepts the email. Acceptance does not guarantee inbox delivery; monitor delivery and bounce events in your Resend dashboard. Replies go directly to the guest. Identical retries use Resend's [idempotency keys](https://resend.com/docs/dashboard/emails/idempotency-keys) to avoid duplicate emails within its 24-hour window.
 
-## Deploy on Vercel
+These are reservation **inquiries**: staff must confirm availability and rates. The website does not take payments, reserve inventory, or store inquiries in a database. Email delivery requires a Node.js-capable Next.js deployment; a static-only export cannot run the API route.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Booking links and footer policies
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Each villa's Reserve link opens the inquiry form with that villa selected. Changing villas preserves any guest details already entered. The header and hero booking links go directly to the form, and the rooms navigation targets an anchor outside the animated gallery.
+
+To link existing policy pages, set `PRIVACY_POLICY_URL` and `TERMS_OF_SERVICE_URL` to their complete HTTPS URLs in `.env.local` and your hosting environment. Restart development or rebuild the deployment after changing them. Unconfigured policy links are hidden. Generic Instagram and Facebook links have been removed until resort profiles are available.
+
+## Checks
+
+```powershell
+npm run lint
+npm run build
+npx playwright install chromium
+npm test
+```
+
+Tests cover validation, Sri Lankan date boundaries, Resend acceptance/failure, retry keys, and the form in desktop and mobile browsers. Email delivery is mocked; tests never send real emails. Playwright starts its own development server on port 3100.
+
+To use an installed browser instead of downloading Chromium, set `PLAYWRIGHT_CHANNEL=msedge` or `chrome` in your shell before running `npm test`.

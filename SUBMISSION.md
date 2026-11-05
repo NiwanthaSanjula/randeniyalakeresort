@@ -52,4 +52,4 @@ The website was built to feel premium, responsive, and contextually alive:
 ---
 
 ## 7. Unfinished Features or Known Limitations
-* **Limitations:** None. The landing page homepage is completely finished, fully responsive across mobile, tablet, and desktop viewports, has working forms (with visual loading states and successful submit warnings), embeds a local interactive map of *Randeniya Wewa*, and compiles cleanly as a static optimized deployment.
+* **Reservation inquiries:** The form uses server-side validation and Resend email delivery through `/api/reservations`, with inline loading, success, and error states. Live delivery requires the three email environment variables documented in `README.md` and a Node.js-capable deployment. Availability and rates require manual confirmation; payments and room inventory management are not implemented.
